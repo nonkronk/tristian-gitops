@@ -6,11 +6,7 @@ Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ans
 
 ![Proxmox VE + Unraid](https://storage.googleapis.com/tristian.id/Proxmox%20VE%20cluster%20%2B%20Unraid%20server.png)
 
-The purpose here is to showcase how you can deploy an entire Kubernetes cluster and show it off to the world using the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). When completed, your Git repository will be driving the state of your Kubernetes cluster. In addition with the help of the [Ansible](https://github.com/ansible-collections/community.sops), [Terraform](https://github.com/carlpett/terraform-provider-sops) and [Flux](https://toolkit.fluxcd.io/guides/mozilla-sops/) SOPS integrations you'll be able to commit Age encrypted secrets to your public repo.
-
 ## Overview
-
-## 👋 Introduction
 
 Stacks:
 
@@ -33,7 +29,7 @@ For provisioning:
 - [Ansible](https://www.ansible.com) - this will be used to provision the Ubuntu operating system to be ready for Kubernetes and also to install k3s
 - [Terraform](https://www.terraform.io) - in order to help with the DNS settings this will be used to provision an already existing Cloudflare domain and DNS settings
 
-## 📝 Prerequisites
+## 📝 Prerequisites 
 
 ### 💻 Systems
 
@@ -62,9 +58,6 @@ For provisioning:
 | [gitleaks](https://github.com/zricethezav/gitleaks)    | Scan git repos (or files) for secrets                    |
 | [prettier](https://github.com/prettier/prettier)       | Prettier is an opinionated code formatter.               |
 
-### ⚠️ pre-commit
-
-
 ## 📂 Repository structure
 
 The Git repository contains the following directories under `cluster` and are ordered below by how Flux will apply them.
@@ -91,10 +84,6 @@ cluster
     └── cert-manager
 ```
 
-## ❔ What's next
-
-Many people have shared their awesome repositories over at [awesome-home-kubernetes](https://github.com/k8s-at-home/awesome-home-kubernetes), be sure to check this out and click the `Search All Repos` icon if you are wondering how someone implemented or deployed an application.
-
 ## 🤝 Thanks
 
-Big shout out to all the authors and contributors to the projects at [awesome-home-kubernetes](https://github.com/k8s-at-home/awesome-home-kubernetes)
+Big shout out to all the authors and contributors to the projects [awesome-home-kubernetes](https://github.com/k8s-at-home/awesome-home-kubernetes)
