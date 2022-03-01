@@ -31,8 +31,6 @@ For provisioning:
 
 ## 📝 Prerequisites 
 
-### 💻 Systems
-
 ### 🔧 Tools
 
 | Tool                                               | Purpose                                                                                                                                 |
