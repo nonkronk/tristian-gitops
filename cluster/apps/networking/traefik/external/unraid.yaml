@@ -14,6 +14,10 @@ spec:
       port: 9080
       protocol: TCP
       targetPort: 9080
+    - name: nextcloud
+      port: 444
+      protocol: TCP
+      targetPort: 444
   clusterIP: None
   type: ClusterIP
 ---
@@ -32,6 +36,9 @@ subsets:
         protocol: TCP
       - name: gitlab
         port: 9080
+        protocol: TCP
+      - name: nextcloud
+        port: 444
         protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
@@ -67,10 +74,21 @@ spec:
                   number: 9080
             path: /
             pathType: Prefix
+    - host: "cloud.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: unraid
+                port:
+                  number: 444
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
-        - tristian.id
-        - git.tristian.id
+        - "${SECRET_DOMAIN}"
+        - "git.${SECRET_DOMAIN}"
+        - "cloud.${SECRET_DOMAIN}"
       secretName: tristian-tls
 status:
   loadBalancer:
