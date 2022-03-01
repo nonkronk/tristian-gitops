@@ -49,7 +49,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: console
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: default-secure-headers@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: secured-chain@kubernetescrd
   name: unraid
   namespace: default
 spec:
