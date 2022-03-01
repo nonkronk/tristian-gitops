@@ -3,6 +3,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: secured-chain
+  namespace: default
 spec:
   chain:
     middlewares:
