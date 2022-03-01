@@ -38,7 +38,7 @@ subsets:
         port: 9080
         protocol: TCP
       - name: nextcloud
-        port: 443
+        port: 444
         protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
