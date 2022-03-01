@@ -1,0 +1,10 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: secured-chain
+spec:
+  chain:
+    middlewares:
+      - name: rate-limit
+      - name: secure-headers
