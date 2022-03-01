@@ -1,0 +1,31 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: secure-headers
+  namespace: default
+spec:
+  rateLimit:
+    average: 100
+    burst: 50
+  headers:
+    accessControlAllowMethods:
+      - GET
+      - OPTIONS
+      - PUT
+    accessControlMaxAge: 100
+    hostsProxyHeaders:
+      - X-Forwarded-Host
+    sslRedirect: true
+    stsSeconds: 15552000
+    stsIncludeSubdomains: true
+    stsPreload: true
+    forceSTSHeader: true
+    customFrameOptionsValue: SAMEORIGIN
+    contentTypeNosniff: true
+    browserXssFilter: true
+    referrerPolicy: same-origin
+    featurePolicy: "camera 'none'; geolocation 'none'; microphone 'none'; payment 'none'; usb 'none'; vr 'none';"
+    customResponseHeaders:
+      X-Robots-Tag: none
+      server: ""
