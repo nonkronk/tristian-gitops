@@ -6,7 +6,7 @@ metadata:
   namespace: default
 spec:
   ports:
-    - name: tristian
+    - name: unraid
       port: 3000
       protocol: TCP
       targetPort: 3000
@@ -23,7 +23,7 @@ subsets:
     # list all external ips for this service
       - ip: 192.168.102.46
     ports:
-      - name: tristian
+      - name: unraid
         port: 3000
         protocol: TCP
 ---
@@ -35,7 +35,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: console
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-  name: tristian
+  name: unraid
   namespace: default
 spec:
   ingressClassName: traefik
@@ -45,7 +45,7 @@ spec:
         paths:
           - backend:
               service:
-                name: tristian
+                name: unraid
                 port:
                   number: 3000
             path: /
