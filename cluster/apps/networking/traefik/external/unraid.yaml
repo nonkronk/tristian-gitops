@@ -18,6 +18,10 @@ spec:
       port: 443
       protocol: TCP
       targetPort: 444
+    - name: default
+      port: 81
+      protocol: TCP
+      targetPort: 80
   clusterIP: None
   type: ClusterIP
 ---
@@ -39,6 +43,9 @@ subsets:
         protocol: TCP
       - name: nextcloud
         port: 444
+        protocol: TCP
+      - name: default
+        port: 80
         protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
@@ -85,11 +92,22 @@ spec:
                   number: 443
             path: /
             pathType: Prefix
+    - host: "ur.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: unraid
+                port:
+                  number: 81
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
         - "git.${SECRET_DOMAIN}"
         - "cloud.${SECRET_DOMAIN}"
+        - "ur.${SECRET_DOMAIN}"
       secretName: tristian-tls
 status:
   loadBalancer:
