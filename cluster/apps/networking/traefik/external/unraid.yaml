@@ -76,16 +76,6 @@ spec:
               service:
                 name: unraid
                 port:
-                  number: 3001
-            path: /x
-            pathType: Prefix
-    - host: "${SECRET_DOMAIN}"
-      http:
-        paths:
-          - backend:
-              service:
-                name: unraid
-                port:
                   number: 3000
             path: /
             pathType: Prefix
@@ -119,12 +109,23 @@ spec:
                   number: 81
             path: /
             pathType: Prefix
+    - host: "link.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: unraid
+                port:
+                  number: 3001
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
         - "git.${SECRET_DOMAIN}"
         - "cloud.${SECRET_DOMAIN}"
         - "ur.${SECRET_DOMAIN}"
+        - "link.${SECRET_DOMAIN}"
       secretName: tristian-tls
 status:
   loadBalancer:
