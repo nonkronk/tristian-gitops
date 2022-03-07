@@ -78,7 +78,7 @@ spec:
                 port:
                   number: 3001
             path: /x
-            pathType: Exact
+            pathType: Prefix
     - host: "${SECRET_DOMAIN}"
       http:
         paths:
