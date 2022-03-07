@@ -74,6 +74,16 @@ spec:
         paths:
           - backend:
               service:
+                name: kutt
+                port:
+                  number: 3001
+            path: /x
+            pathType: Exact
+    - host: "${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
                 name: unraid
                 port:
                   number: 3000
@@ -109,16 +119,6 @@ spec:
                   number: 81
             path: /
             pathType: Prefix
-    - host: "${SECRET_DOMAIN}"
-      http:
-        paths:
-          - backend:
-              service:
-                name: kutt
-                port:
-                  number: 3001
-            path: /x
-            pathType: Exact
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
