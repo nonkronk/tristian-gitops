@@ -18,6 +18,10 @@ spec:
       port: 443
       protocol: TCP
       targetPort: 444
+    - name: kutt
+      port: 3001
+      protocol: TCP
+      targetPort: 3001
     - name: default
       port: 81
       protocol: TCP
@@ -43,6 +47,9 @@ subsets:
         protocol: TCP
       - name: nextcloud
         port: 444
+        protocol: TCP
+      - name: kutt
+        port: 3001
         protocol: TCP
       - name: default
         port: 80
@@ -102,6 +109,16 @@ spec:
                   number: 81
             path: /
             pathType: Prefix
+    - host: "${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: kutt
+                port:
+                  number: 3001
+            path: /x
+            pathType: Exact
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
