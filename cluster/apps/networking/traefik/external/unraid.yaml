@@ -74,7 +74,7 @@ spec:
         paths:
           - backend:
               service:
-                name: kutt
+                name: unraid
                 port:
                   number: 3001
             path: /x
