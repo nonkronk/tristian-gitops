@@ -41,7 +41,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: "${SECRET_DOMAIN}"
+    - host: "cd.${SECRET_DOMAIN}"
       http:
         paths:
           - backend:
