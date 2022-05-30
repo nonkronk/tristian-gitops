@@ -4,8 +4,7 @@
 
 Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
-![Proxmox VE + Unraid](![it-k8s-gitops](https://user-images.githubusercontent.com/29120359/170990291-c6962a7d-67df-493b-898c-041254268979.jpeg)
-)
+![Proxmox VE + Unraid](https://user-images.githubusercontent.com/29120359/170990775-ee148f04-d6f9-4870-b3f2-a8bc2ddc05ff.png)
 
 ## Overview
 
