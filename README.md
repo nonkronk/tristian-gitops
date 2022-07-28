@@ -1,6 +1,6 @@
 # it-k8s-gitops
 
-## Push-based GitOps-Kubernetes (fluxcd/flux2-managed) on top of Proxmox VE cluster + Unraid VMs [@Home](https://github.com/nonkronk/rumah-assistant)
+## Pull-based GitOps-Kubernetes (fluxcd/flux2-managed) on top of Proxmox VE cluster + Unraid VMs [@Home](https://github.com/nonkronk/rumah-assistant)
 
 Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
