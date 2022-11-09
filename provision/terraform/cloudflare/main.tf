@@ -85,7 +85,7 @@ data "http" "ipv4" {
 resource "cloudflare_record" "ipv4" {
   name    = "ipv4"
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = chomp(data.http.ipv4.body)
+  value   = chomp(data.http.ipv4.response_body)
   proxied = true
   type    = "A"
   ttl     = 1
@@ -129,6 +129,15 @@ resource "cloudflare_record" "cloud" {
 
 resource "cloudflare_record" "echo_server" {
   name    = "echo-server"
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = "ipv4.${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "rass" {
+  name    = "rass"
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
   value   = "ipv4.${data.sops_file.cloudflare_secrets.data["cloudflare_domain"]}"
   proxied = true
