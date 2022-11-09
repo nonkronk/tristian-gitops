@@ -54,7 +54,7 @@ spec:
   tls:
     - hosts:
         - "rass.${SECRET_DOMAIN}"
-      secretName: tristian-tls
+      secretName: rass-tls
 status:
   loadBalancer:
     ingress:
