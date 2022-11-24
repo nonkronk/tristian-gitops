@@ -22,6 +22,10 @@ spec:
       port: 3001
       protocol: TCP
       targetPort: 3001
+    - name: vaultwarden
+      port: 4743
+      protocol: TCP
+      targetPort: 4743
     - name: default
       port: 81
       protocol: TCP
@@ -50,6 +54,9 @@ subsets:
         protocol: TCP
       - name: kutt
         port: 3001
+        protocol: TCP
+      - name: vaultwarden
+        port: 4743
         protocol: TCP
       - name: default
         port: 80
@@ -119,6 +126,16 @@ spec:
                   number: 3001
             path: /
             pathType: Prefix
+    - host: "vault.${SECRET_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: unraid
+                port:
+                  number: 4743
+            path: /
+            pathType: Prefix
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
@@ -126,6 +143,7 @@ spec:
         - "cloud.${SECRET_DOMAIN}"
         - "ur.${SECRET_DOMAIN}"
         - "link.${SECRET_DOMAIN}"
+        - "vault.${SECRET_DOMAIN}"
       secretName: tristian-tls
 status:
   loadBalancer:
