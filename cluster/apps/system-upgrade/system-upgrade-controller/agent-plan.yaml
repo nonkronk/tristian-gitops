@@ -9,7 +9,7 @@ metadata:
 spec:
   serviceAccountName: system-upgrade
   concurrency: 1
-  channel: https://update.k3s.io/v1-release/channels/v1.23
+  channel: https://update.k3s.io/v1-release/channels/v1.24
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/master
@@ -23,3 +23,4 @@ spec:
       - "k3s-server"
   upgrade:
     image: rancher/k3s-upgrade
+  version: v1.24.12+k3s1
