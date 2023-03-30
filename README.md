@@ -4,6 +4,12 @@
 
 Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
+I used [flux-cluster-template](https://github.com/onedr0p/flux-cluster-template/tree/fe33dc2174457519e47481a34c08707214b62cc6) as a base for this repo. Run this command to use the exact commit I used as a base:
+
+```bash
+git clone --branch fe33dc2174457519e47481a34c08707214b62cc6 https://github.com/onedr0p/flux-cluster-template
+```
+
 ![Proxmox VE + Unraid](https://user-images.githubusercontent.com/29120359/170990775-ee148f04-d6f9-4870-b3f2-a8bc2ddc05ff.png)
 
 ## Overview
@@ -29,7 +35,7 @@ For provisioning:
 - [Ansible](https://www.ansible.com) - this will be used to provision the Ubuntu operating system to be ready for Kubernetes and also to install k3s
 - [Terraform](https://www.terraform.io) - in order to help with the DNS settings this will be used to provision an already existing Cloudflare domain and DNS settings
 
-## 📝 Prerequisites 
+## 📝 Prerequisites
 
 ### 🔧 Tools
 
