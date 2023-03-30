@@ -7,12 +7,14 @@ Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ans
 I used [flux-cluster-template](https://github.com/onedr0p/flux-cluster-template/tree/fe33dc2174457519e47481a34c08707214b62cc6) as a base for this repo. Run this command to use the exact commit I used as a base:
 
 ```bash
-git clone --branch fe33dc2174457519e47481a34c08707214b62cc6 https://github.com/onedr0p/flux-cluster-template
+git clone -n https://github.com/onedr0p/flux-cluster-template.git
+cd flux-cluster-template
+git checkout -b it-k8s-gitops fe33dc2174457519e47481a34c08707214b62cc6
 ```
 
 ![Proxmox VE + Unraid](https://user-images.githubusercontent.com/29120359/170990775-ee148f04-d6f9-4870-b3f2-a8bc2ddc05ff.png)
 
-## Overview
+## 👀 Overview
 
 Stacks:
 
@@ -52,7 +54,7 @@ For provisioning:
 | [sops](https://github.com/mozilla/sops)            | Encrypts k8s secrets with Age                                                                                                           |
 | [terraform](https://www.terraform.io)              | Prepare a Cloudflare domain to be used with the cluster                                                                                 |
 
-#### Complement
+#### 🛠️ Complement
 
 | Tool                                                   | Purpose                                                  |
 |--------------------------------------------------------|----------------------------------------------------------|
