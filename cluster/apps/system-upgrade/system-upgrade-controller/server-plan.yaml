@@ -20,3 +20,4 @@ spec:
       operator: "Exists"
   upgrade:
     image: rancher/k3s-upgrade
+  version: v1.24.12+k3s1
