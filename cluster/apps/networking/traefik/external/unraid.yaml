@@ -10,22 +10,10 @@ spec:
       port: 3000
       protocol: TCP
       targetPort: 3000
-    - name: gitlab
-      port: 9080
-      protocol: TCP
-      targetPort: 9080
-    - name: nextcloud
-      port: 443
-      protocol: TCP
-      targetPort: 444
     - name: kutt
       port: 3001
       protocol: TCP
       targetPort: 3001
-    - name: vaultwarden
-      port: 4743
-      protocol: TCP
-      targetPort: 4743
     - name: default
       port: 81
       protocol: TCP
@@ -46,17 +34,8 @@ subsets:
       - name: tristian
         port: 3000
         protocol: TCP
-      - name: gitlab
-        port: 9080
-        protocol: TCP
-      - name: nextcloud
-        port: 444
-        protocol: TCP
       - name: kutt
         port: 3001
-        protocol: TCP
-      - name: vaultwarden
-        port: 4743
         protocol: TCP
       - name: default
         port: 80
@@ -86,26 +65,6 @@ spec:
                   number: 3000
             path: /
             pathType: Prefix
-    - host: "git.${SECRET_DOMAIN}"
-      http:
-        paths:
-          - backend:
-              service:
-                name: unraid
-                port:
-                  number: 9080
-            path: /
-            pathType: Prefix
-    - host: "cloud.${SECRET_DOMAIN}"
-      http:
-        paths:
-          - backend:
-              service:
-                name: unraid
-                port:
-                  number: 443
-            path: /
-            pathType: Prefix
     - host: "ur.${SECRET_DOMAIN}"
       http:
         paths:
@@ -126,24 +85,11 @@ spec:
                   number: 3001
             path: /
             pathType: Prefix
-    - host: "vault.${SECRET_DOMAIN}"
-      http:
-        paths:
-          - backend:
-              service:
-                name: unraid
-                port:
-                  number: 4743
-            path: /
-            pathType: Prefix
   tls:
     - hosts:
         - "${SECRET_DOMAIN}"
-        - "git.${SECRET_DOMAIN}"
-        - "cloud.${SECRET_DOMAIN}"
         - "ur.${SECRET_DOMAIN}"
         - "link.${SECRET_DOMAIN}"
-        - "vault.${SECRET_DOMAIN}"
       secretName: tristian-tls
 status:
   loadBalancer:
