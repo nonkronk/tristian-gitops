@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: $SECRET_HOSTING_DOMAIN
+    - host: "${SECRET_HOSTING_DOMAIN}"
       http:
         paths:
           - backend:
@@ -24,9 +24,5 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - $SECRET_HOSTING_DOMAIN
+        - "${SECRET_HOSTING_DOMAIN}"
       secretName: hosting-tls
-status:
-  loadBalancer:
-    ingress:
-      - ip: 192.168.102.84

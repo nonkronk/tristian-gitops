@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: "rass.${SECRET_DOMAIN}"
+    - host: "${SECRET_HOME_DOMAIN}"
       http:
         paths:
           - backend:
@@ -24,9 +24,5 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - "rass.${SECRET_DOMAIN}"
+        - "${SECRET_HOME_DOMAIN}"
       secretName: rass-tls
-status:
-  loadBalancer:
-    ingress:
-      - ip: 192.168.102.44
