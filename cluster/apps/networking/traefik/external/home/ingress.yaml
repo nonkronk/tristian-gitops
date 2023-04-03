@@ -7,7 +7,7 @@ metadata:
     hajimari.io/icon: console
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
-  name: rass
+  name: home
   namespace: default
 spec:
   ingressClassName: traefik
@@ -17,7 +17,7 @@ spec:
         paths:
           - backend:
               service:
-                name: rass
+                name: home
                 port:
                   number: 8123
             path: /
@@ -25,4 +25,4 @@ spec:
   tls:
     - hosts:
         - "${SECRET_HOME_DOMAIN}"
-      secretName: rass-tls
+      secretName: home-tls
