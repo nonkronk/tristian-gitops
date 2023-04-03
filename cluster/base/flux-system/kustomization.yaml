@@ -4,5 +4,6 @@ resources:
   - gotk-components.yaml
   - gotk-sync.yaml
   - charts
+  - weave-gitops-dashboard
 patchesStrategicMerge:
   - ./gotk-patches.yaml
