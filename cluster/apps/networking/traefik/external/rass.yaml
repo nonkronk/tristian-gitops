@@ -20,7 +20,7 @@ metadata:
   namespace: default
 subsets:
   - addresses:
-    # list all external ips for this service 
+    # list all external ips for this service
       - ip: 192.168.102.44
     ports:
       - name: default
