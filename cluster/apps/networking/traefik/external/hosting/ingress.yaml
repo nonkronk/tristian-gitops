@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: console
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+  name: hosting
+  namespace: default
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: $SECRET_HOSTING__DOMAIN
+      http:
+        paths:
+          - backend:
+              service:
+                name: hosting
+                port:
+                  number: 443
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - $SECRET_HOSTING__DOMAIN
+      secretName: hosting-tls
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.102.84
