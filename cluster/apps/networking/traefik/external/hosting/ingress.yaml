@@ -8,7 +8,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
   name: hosting
-  namespace: default
+  namespace: external
 spec:
   ingressClassName: traefik
   rules:
