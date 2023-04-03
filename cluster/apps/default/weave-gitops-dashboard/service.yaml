@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -5,10 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   ports:
-  - name: http
-    port: 9001
-    protocol: TCP
-    targetPort: 9001
+    - name: http
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
   selector:
     app: ww-gitops-weave-gitops
   type: ClusterIP
