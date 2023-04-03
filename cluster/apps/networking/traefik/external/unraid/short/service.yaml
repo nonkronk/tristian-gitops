@@ -6,9 +6,8 @@ metadata:
 spec:
   ports:
     - name: default
-      port: 3000
+      port: 3001
       protocol: TCP
-      targetPort: 3000
+      targetPort: 3001
   clusterIP: None
   type: ClusterIP
-  
