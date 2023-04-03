@@ -26,3 +26,4 @@ spec:
     - hosts:
         - "${SECRET_HOME_DOMAIN}"
       secretName: home-tls
+      
