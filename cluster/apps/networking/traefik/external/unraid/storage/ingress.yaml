@@ -4,25 +4,25 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
     hajimari.io/enable: "true"
-    hajimari.io/icon: web-plus
+    hajimari.io/icon: nas
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
-  name: short
+  name: storage
   namespace: external
 spec:
   ingressClassName: traefik
   rules:
-    - host: "${SECRET_SHORT_DOMAIN}"
+    - host: "${SECRET_STORAGE_DOMAIN}"
       http:
         paths:
           - backend:
               service:
-                name: short
+                name: storage
                 port:
-                  number: 3001
+                  number: 80
             path: /
             pathType: Prefix
   tls:
     - hosts:
-        - "${SECRET_SHORT_DOMAIN}"
-      secretName: short-tls
+        - "${SECRET_STORAGE_DOMAIN}"
+      secretName: storage-tls
