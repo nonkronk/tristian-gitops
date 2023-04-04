@@ -2,28 +2,29 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: proxy-dashboard
-  namespace: networking
+  name: weave-gitops
+  namespace: flux-system
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
-    hajimari.io/appName: "proxy-dashboard"
+    hajimari.io/appName: "weave"
     hajimari.io/enable: "true"
-    hajimari.io/icon: "web"
+    hajimari.io/icon: "source-branch-sync"
     traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+    traefik.ingress.kubernetes.io/router.middlewares: "default-secured-chain@kubernetescrd"
 spec:
   ingressClassName: "traefik"
   tls:
     - hosts:
-        - "${SECRET_PROXY_DOMAIN}"
-      secretName: "proxy-dashboard-tls"
+        - "${SECRET_WEAVE_DOMAIN}"
+      secretName: "weave-gitops-tls"
   rules:
-    - host: "${SECRET_PROXY_DOMAIN}"
+    - host: "${SECRET_WEAVE_DOMAIN}"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: traefik
+                name: weave-gitops
                 port:
-                  number: 9000
+                  number: 9001
