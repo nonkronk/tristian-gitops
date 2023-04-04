@@ -16,5 +16,4 @@ xanmanning.k3s*
 .terraform.tfstate*
 terraform.tfstate*
 # Swap
-.*.swap
 *.swp
