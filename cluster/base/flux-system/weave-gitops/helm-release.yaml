@@ -25,5 +25,5 @@ spec:
   values:
     adminUser:
       create: true
-      passwordHash: $SECRET_WEAVE_PASSWORD_HASH
-      username: $SECRET_$USERNAME
+      passwordHash: "${SECRET_WEAVE_PASSWORD_HASH}"
+      username: "${SECRET_USERNAME}"
