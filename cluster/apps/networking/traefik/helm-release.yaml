@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: traefik
-      version: 13.0.1
+      version: 22.0.0
       sourceRef:
         kind: HelmRepository
         name: traefik
@@ -27,7 +27,7 @@ spec:
       retries: 3
   values:
     image:
-      name: traefik
+      repository: traefik
     deployment:
       kind: Deployment
       replicas: 1
@@ -37,6 +37,7 @@ spec:
       spec:
         loadBalancerIP: "${METALLB_TRAEFIK_ADDR}"
         externalTrafficPolicy: Local
+      single: false # Retain the old default behavior since Load balancers with mixed protocols are available since v1.20 & k8s v1.24
     logs:
       general:
         format: json
