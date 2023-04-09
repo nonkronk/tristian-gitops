@@ -23,4 +23,3 @@ spec:
       - "k3s-server"
   upgrade:
     image: rancher/k3s-upgrade
-  version: v1.25.7+k3s1
