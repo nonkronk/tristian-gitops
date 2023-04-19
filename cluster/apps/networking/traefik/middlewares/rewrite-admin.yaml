@@ -4,6 +4,6 @@ metadata:
   name: rewrite-admin
   namespace: default
 spec:
-  replacePath:
-    path: "^/$"
+  replacePathRegex:
+    regex: "^/$"
     replacement: "/admin"
