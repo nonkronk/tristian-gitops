@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: dns-outline
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+  name: dns2
+  namespace: external
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "${SECRET_DNS2_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: dns2
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "${SECRET_DNS2_DOMAIN}"
+      secretName: dns2-tls
