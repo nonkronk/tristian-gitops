@@ -6,7 +6,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: dns-outline
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd,default-rewrite-admin@kubernetescrd
   name: dns2
   namespace: external
 spec:
