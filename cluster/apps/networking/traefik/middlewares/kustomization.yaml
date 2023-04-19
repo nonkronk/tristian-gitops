@@ -5,3 +5,4 @@ resources:
   - secure-headers.yaml
   - rate-limit.yaml
   - chains.yaml
+  - rewrite-admin.yaml

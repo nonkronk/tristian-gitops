@@ -1,0 +1,9 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: rewrite-admin
+  namespace: default
+spec:
+  replacePath:
+    path: "^/$"
+    replacement: "/admin"
