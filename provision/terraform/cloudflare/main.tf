@@ -94,7 +94,7 @@ resource "cloudflare_record" "cname_home" {
 resource "cloudflare_record" "cname_oracle" {
   name    = data.sops_file.cloudflare_secrets.data["cname_oracle"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = chomp(data.http.ipv4.response_body)
+  value   = data.sops_file.cloudflare_secrets.data["oracle_ip"]
   proxied = true
   type    = "A"
   ttl     = 1
