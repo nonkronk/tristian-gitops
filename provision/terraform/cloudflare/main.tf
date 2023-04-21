@@ -217,14 +217,14 @@ resource "cloudflare_record" "oracle_casper_subdomain" {
   ttl     = 1
 }
 
-# resource "cloudflare_record" "home_subdomain" {
-#   name    = data.sops_file.cloudflare_secrets.data["home_subdomain"]
-#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-#   proxied = true
-#   type    = "CNAME"
-#   ttl     = 1
-# }
+resource "cloudflare_record" "home_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["home_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
 
 # resource "cloudflare_record" "weave_subdomain" {
 #   name    = data.sops_file.cloudflare_secrets.data["weave_subdomain"]
