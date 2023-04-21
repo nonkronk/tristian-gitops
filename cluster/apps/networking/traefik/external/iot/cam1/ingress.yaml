@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: cctv
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd,default-rewrite-cgi-bin@kubernetescrd
+  name: cam1
+  namespace: external
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "${SECRET_CAM1_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: cam1
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "${SECRET_CAM1_DOMAIN}"
+      secretName: cam1-tls
