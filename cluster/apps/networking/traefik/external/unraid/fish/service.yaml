@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fish
+  namespace: external
+spec:
+  ports:
+    - name: default
+      port: 8282
+      protocol: TCP
+      targetPort: 8282
+  clusterIP: None
+  type: ClusterIP

@@ -333,3 +333,84 @@ resource "cloudflare_record" "home_subdomain" {
 #   type    = "CNAME"
 #   ttl     = 1
 # }
+
+resource "cloudflare_record" "frontback_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["frontback_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "livingsensor_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["livingsensor_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "kitchensensor_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["kitchensensor_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "mybed_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["mybed_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "anyabed_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["anyabed_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "power_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["power_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "fish_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["fish_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "owrt_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["owrt_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "remote_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["remote_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}

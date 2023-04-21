@@ -6,3 +6,9 @@ resources:
   - cam1
   - cam2
   - cam3
+  - frontback
+  - livingsensor
+  - kitchensensor
+  - mybed
+  - anyabed
+  - power

@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: router
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+  name: owrt
+  namespace: external
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "${SECRET_OWRT_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: owrt
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "${SECRET_OWRT_DOMAIN}"
+      secretName: owrt-tls

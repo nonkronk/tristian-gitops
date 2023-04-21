@@ -7,3 +7,6 @@ resources:
   - short
   - storage
   - dns2
+  - fish
+  - owrt
+  - remote
