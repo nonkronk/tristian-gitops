@@ -6,3 +6,4 @@ resources:
   - rate-limit.yaml
   - chains.yaml
   - rewrite-admin.yaml
+  - rewrite-cgi-bin.yaml
