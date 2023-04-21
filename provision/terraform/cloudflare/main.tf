@@ -298,38 +298,38 @@ resource "cloudflare_record" "home_subdomain" {
 #   ttl     = 1
 # }
 
-resource "cloudflare_record" "cam0_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["cam0_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "cam0_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["cam0_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "cam1_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["cam1_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "cam1_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["cam1_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "cam2_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["cam2_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "cam2_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["cam2_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "cam3_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["cam3_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "cam3_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["cam3_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
