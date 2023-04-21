@@ -27,18 +27,55 @@ spec:
       repository: ghcr.io/toboshii/hajimari
       tag: v0.3.1
     hajimari:
-      defaultEnable: false
+      defaultEnable: true
       namespaceSelector:
         matchNames:
           - default
           - external
           - networking
-      name: "you"
+      name: "IT"
       customApps:
-        - name: Some External Cluster Service
-          url: http://192.168.1.100:5000
-          icon: test-tube
+        - name: Tristian Devbin
+          url: ${SECRET_DEVBIN_URL}
+          icon: microsoft-visual-studio-code
+        - name: Tristian OCI
+          url: ${SECRET_OCI_URL}
+          icon: microsoft-visual-studio-code
+        - name: Password
+          url: ${SECRET_PASS_DOMAIN}
+          icon: onepassword
+        - name: ChatGPT UI
+          url: ${SECRET_GPT_DOMAIN}
+          icon: chat-plus
+        - name: Casper
+          url: ${SECRET_CASPER_DOMAIN}
+          icon: post
+        - name: Oracle DNS
+          url: ${SECRET_ORACLE_DNS_DOMAIN}
+          icon: dns-outline
+        - name: Oracle Remote
+          url: ${SECRET_ORACLE_REMOTE_DOMAIN}
+          icon: key
+        - name: Oracle Jenkins
+          url: ${SECRET_ORACLE_JENKINS_DOMAIN}
+          icon: source-branch-sync
       groups:
+        - name: AI
+          links:
+            - name: ChatGPT
+              url: "https://chat.openai.com"
+        - name: Provider
+          links:
+            - name: Google Cloud
+              url: "https://cloud.google.com"
+            - name: Cloudflare
+              url: "https://dash.cloudflare.com"
+            - name: DigitalOcean
+              url: "https://cloud.digitalocean.com"
+            - name: Oracle
+              url: "https://cloud.oracle.com"
+            - name: AWS
+              url: "https://aws.amazon.com/"
         - name: Communicate
           links:
             - name: Discord
@@ -49,8 +86,6 @@ spec:
               url: "https://slack.com/signin"
         - name: Cloud
           links:
-            - name: Box
-              url: "https://box.com"
             - name: Dropbox
               url: "https://dropbox.com"
             - name: Drive
@@ -83,14 +118,10 @@ spec:
           links:
             - name: Spotify
               url: "http://browse.spotify.com"
-            - name: Trakt
-              url: "http://trakt.tv"
             - name: YouTube
               url: "https://youtube.com/feed/subscriptions"
         - name: Reading
           links:
-            - name: Instapaper
-              url: "https://www.instapaper.com/u"
             - name: Medium
               url: "http://medium.com"
             - name: Reddit
