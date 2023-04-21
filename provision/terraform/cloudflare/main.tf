@@ -271,14 +271,14 @@ resource "cloudflare_record" "home_subdomain" {
 #   ttl     = 1
 # }
 
-resource "cloudflare_record" "container_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["container_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "container_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["container_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
 resource "cloudflare_record" "indie_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["indie_subdomain"]
