@@ -6,7 +6,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: cctv
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd,default-rewrite-cgi-bin@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
   name: cam2
   namespace: external
 spec:
