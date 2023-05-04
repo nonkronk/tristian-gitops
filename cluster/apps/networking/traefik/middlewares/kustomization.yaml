@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - secure-headers.yaml
   - rate-limit.yaml
-  - chains.yaml
+  - secured-chain.yaml
   - rewrite-admin.yaml
   - rewrite-cgi-bin.yaml
