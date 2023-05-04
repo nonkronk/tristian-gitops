@@ -6,7 +6,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: lightbulb
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-rate-limit@kubernetescrd
   name: backside
   namespace: external
 spec:

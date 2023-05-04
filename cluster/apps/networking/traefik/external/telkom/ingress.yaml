@@ -6,7 +6,7 @@ metadata:
     hajimari.io/enable: "true"
     hajimari.io/icon: router-wireless-settings
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: default-rate-limit@kubernetescrd
   name: indie
   namespace: external
 spec:
