@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: resistor-nodes
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-secured-chain@kubernetescrd
+  name: node
+  namespace: external
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "${SECRET_NODE_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: node
+                port:
+                  number: 1880
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "${SECRET_NODE_DOMAIN}"
+      secretName: node-tls
