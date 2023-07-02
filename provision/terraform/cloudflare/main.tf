@@ -57,7 +57,7 @@ resource "cloudflare_zone_settings_override" "cloudflare_settings" {
     }
     rocket_loader = "off"
     # /caching/configuration
-    always_online    = "off"
+    always_online    = "on"
     development_mode = "off"
     # /network
     http3               = "on"
@@ -210,6 +210,15 @@ resource "cloudflare_record" "oracle_remote_subdomain" {
 
 resource "cloudflare_record" "oracle_casper_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["oracle_casper_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "oracle_kasm_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["oracle_kasm_subdomain"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
   proxied = true
