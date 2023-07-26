@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: nodebin
+  namespace: external
+subsets:
+  - addresses:
+      - ip: 10.40.0.40
+    ports:
+      - name: default
+        port: 1880
+        protocol: TCP
