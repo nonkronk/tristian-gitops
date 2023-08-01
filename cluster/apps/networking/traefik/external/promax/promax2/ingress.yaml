@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    hajimari.io/enable: "true"
+    hajimari.io/icon: server-plus
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: default-rate-limit@kubernetescrd
+  name: promax2
+  namespace: external
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "${SECRET_PROMAX2_DOMAIN}"
+      http:
+        paths:
+          - backend:
+              service:
+                name: promax2
+                port:
+                  number: 8006
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "${SECRET_PROMAX2_DOMAIN}"
+      secretName: promax2-tls
