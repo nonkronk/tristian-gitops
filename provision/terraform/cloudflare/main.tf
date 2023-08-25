@@ -486,3 +486,21 @@ resource "cloudflare_record" "home_subdomain" {
 #   type    = "CNAME"
 #   ttl     = 1
 # }
+
+resource "cloudflare_record" "nodepi_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["nodepi_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "nodepi0_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["nodepi0_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
