@@ -5,7 +5,7 @@ metadata:
   namespace: external
 subsets:
   - addresses:
-      - ip: 10.40.0.30
+      - ip: 10.40.0.32
     ports:
       - name: default
         port: 80
