@@ -16,3 +16,9 @@ resources:
   - nodepi
   - nodepi0
   - watermeter
+  - watersupply
+  - dining
+  - bath
+  - rf
+  - mining
+  - front
