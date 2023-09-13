@@ -505,8 +505,62 @@ resource "cloudflare_record" "home_subdomain" {
 #   ttl     = 1
 # }
 
-resource "cloudflare_record" "watermeter_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["watermeter_subdomain"]
+# resource "cloudflare_record" "watermeter_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["watermeter_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
+
+resource "cloudflare_record" "watersupply_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["watersupply_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "dining_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["dining_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "bath_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["bath_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "rf_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["rf_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "mining_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["mining_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
+resource "cloudflare_record" "front_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["front_subdomain"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
   proxied = true
