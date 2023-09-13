@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: watersupply
+  namespace: external
+subsets:
+  - addresses:
+      - ip: 10.40.0.2
+    ports:
+      - name: default
+        port: 80
+        protocol: TCP
