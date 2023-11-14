@@ -1,15 +1,13 @@
-# it-k8s-gitops
+# tristian-gitops
 
 ## Pull-based GitOps-Kubernetes (fluxcd/flux2-managed) on top of Proxmox VE cluster + Unraid VMs [@Home](https://github.com/nonkronk/rumah-assistant)
 
-Highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
-
-I used [flux-cluster-template](https://github.com/onedr0p/flux-cluster-template/tree/fe33dc2174457519e47481a34c08707214b62cc6) as a base for this repo. Run this command to use the exact commit I used as a base:
+A highly opinionated setup on deploying HA [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
 ```bash
 git clone -n https://github.com/onedr0p/flux-cluster-template.git
 cd flux-cluster-template
-git checkout -b it-k8s-gitops fe33dc2174457519e47481a34c08707214b62cc6
+git checkout -b tristian-gitops fe33dc2174457519e47481a34c08707214b62cc6
 ```
 
 ![Proxmox VE + Unraid](https://user-images.githubusercontent.com/29120359/170990775-ee148f04-d6f9-4870-b3f2-a8bc2ddc05ff.png)
