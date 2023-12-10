@@ -121,7 +121,7 @@ resource "cloudflare_record" "vcs_subdomain" {
 resource "cloudflare_record" "hosting_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["hosting_subdomain"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
   proxied = true
   type    = "CNAME"
   ttl     = 1
