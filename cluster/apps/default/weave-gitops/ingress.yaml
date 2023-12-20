@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: weave-gitops
-  namespace: flux-system
+  namespace: default
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-production"
     hajimari.io/appName: "weave"
