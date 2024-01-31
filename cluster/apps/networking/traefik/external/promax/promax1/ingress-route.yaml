@@ -14,6 +14,7 @@ spec:
           name: promax1
           namespace: external
           passHostHeader: true
+          scheme: https
           port: 8006
           serversTransport: transport-skip-verify
   tls:
