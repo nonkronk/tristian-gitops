@@ -9,4 +9,4 @@ spec:
     name: letsencrypt-production
     kind: ClusterIssuer
   dnsNames:
-    - ${SECRET_PROMAX1_DOMAIkN}
+    - ${SECRET_PROMAX1_DOMAIN}
