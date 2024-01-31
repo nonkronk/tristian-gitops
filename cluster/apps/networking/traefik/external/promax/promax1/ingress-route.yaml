@@ -2,7 +2,6 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: promax1
-  namespace: external
 spec:
   entryPoints:
     - websecure
@@ -10,7 +9,7 @@ spec:
     - kind: Rule
       match: Host(`${SECRET_PROMAX1_DOMAIN}`)
       middlewares:
-        - name: default-secured-chain
+        - name: secured-chain
       services:
         - kind: Service
           name: promax1
