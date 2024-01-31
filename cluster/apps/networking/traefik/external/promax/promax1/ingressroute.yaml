@@ -1,0 +1,17 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: promax1
+  namespace: external
+spec:
+  routes:
+    - kind: Rule
+      match: Host(`${SECRET_PROMAX1_DOMAIN}`)
+      middlewares:
+        - name: secured-chain@kubernetescrd
+      services:
+        - name: promax1
+          port: 8006
+          serversTransport: skip-verify
+  tls:
+    secretName: promax1-tls
