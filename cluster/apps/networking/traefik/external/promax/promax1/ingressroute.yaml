@@ -14,7 +14,10 @@ spec:
       services:
         - kind: Service
           name: promax1
+          namespace: external
+          passHostHeader: true
           port: 8006
+          scheme: https
           serversTransport: skip-verify
   tls:
     secretName: "${SECRET_PROMAX1_CERTIFICATE}"
