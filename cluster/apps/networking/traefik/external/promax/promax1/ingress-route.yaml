@@ -13,6 +13,7 @@ spec:
       services:
         - kind: Service
           name: promax1
+          namespace: external
           passHostHeader: true
           port: 8006
           serversTransport: transport-skip-verify
