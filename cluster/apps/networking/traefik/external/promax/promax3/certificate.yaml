@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: promax3-certificate-tls
+  namespace: external
+spec:
+  secretName: "${SECRET_PROMAX3_CERTIFICATE}"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  dnsNames:
+    - ${SECRET_PROMAX3_DOMAIN}

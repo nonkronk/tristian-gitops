@@ -1,0 +1,21 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: promax3
+  namespace: external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`${SECRET_PROMAX3_DOMAIN}`)
+      services:
+        - kind: Service
+          name: promax3
+          namespace: external
+          passHostHeader: true
+          scheme: https
+          port: 8006
+          serversTransport: transport-skip-verify
+  tls:
+    secretName: "${SECRET_PROMAX3_CERTIFICATE}"
