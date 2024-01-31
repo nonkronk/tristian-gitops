@@ -4,7 +4,7 @@ metadata:
   name: promax1-certificate
   namespace: external
 spec:
-  secretName: promax1-tls
+  secretName: "${SECRET_PROMAX1_CERTIFICATE}"
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
