@@ -19,4 +19,6 @@ spec:
   tls:
     secretName: "${SECRET_PROMAX1_CERTIFICATE}"
     domains:
-      - main: "${SECRET_PROMAX1_DOMAIN}"
+      - main: "${SECRET_DOMAIN}"
+        sans:
+          - "${SECRET_PROMAX1_DOMAIN}"
