@@ -4,14 +4,17 @@ metadata:
   name: promax1
   namespace: external
 spec:
+  entryPoints:
+    - websecure
   routes:
     - kind: Rule
       match: Host(`${SECRET_PROMAX1_DOMAIN}`)
       middlewares:
-        - name: secured-chain@kubernetescrd
+        - name: default-secured-chain@kubernetescrd
       services:
-        - name: promax1
+        - kind: Service
+          name: promax1
           port: 8006
           serversTransport: skip-verify
   tls:
-    secretName: promax1-tls
+    secretName: "${SECRET_PROMAX1_CERTIFICATE}"
