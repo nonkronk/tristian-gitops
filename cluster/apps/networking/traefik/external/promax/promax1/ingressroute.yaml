@@ -17,6 +17,6 @@ spec:
           port: 8006
           serversTransport: skip-verify
   tls:
-    - hosts:
-        - "${SECRET_PROMAX1_DOMAIN}"
-      secretName: "${SECRET_PROMAX1_CERTIFICATE}"
+    secretName: "${SECRET_PROMAX1_CERTIFICATE}"
+    domains:
+      - main: "${SECRET_PROMAX1_DOMAIN}"
