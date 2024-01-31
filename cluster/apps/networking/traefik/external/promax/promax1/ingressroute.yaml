@@ -21,7 +21,3 @@ spec:
           serversTransport: skip-verify
   tls:
     secretName: "${SECRET_PROMAX1_CERTIFICATE}"
-    domains:
-      - main: "${SECRET_DOMAIN}"
-        sans:
-          - "${SECRET_PROMAX1_DOMAIN}"
