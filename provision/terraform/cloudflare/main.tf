@@ -109,14 +109,14 @@ resource "cloudflare_record" "root" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "vcs_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["vcs_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "vcs_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["vcs_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
 resource "cloudflare_record" "hosting_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["hosting_subdomain"]
@@ -145,14 +145,14 @@ resource "cloudflare_record" "oracle_pass_subdomain" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "oracle_gpt_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_gpt_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_gpt_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_gpt_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
 resource "cloudflare_record" "oracle_helm_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["oracle_helm_subdomain"]
@@ -172,41 +172,41 @@ resource "cloudflare_record" "oracle_auth_subdomain" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "oracle_storage_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_storage_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_storage_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_storage_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "oracle_jenkins_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_jenkins_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_jenkins_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_jenkins_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "oracle_dns_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_dns_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_dns_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_dns_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
-resource "cloudflare_record" "oracle_remote_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_remote_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_remote_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_remote_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
 resource "cloudflare_record" "oracle_casper_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["oracle_casper_subdomain"]
@@ -235,14 +235,14 @@ resource "cloudflare_record" "oracle_micro_subdomain" {
   ttl     = 1
 }
 
-resource "cloudflare_record" "oracle_change_subdomain" {
-  name    = data.sops_file.cloudflare_secrets.data["oracle_change_subdomain"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
-  proxied = true
-  type    = "CNAME"
-  ttl     = 1
-}
+# resource "cloudflare_record" "oracle_change_subdomain" {
+#   name    = data.sops_file.cloudflare_secrets.data["oracle_change_subdomain"]
+#   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#   value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+#   proxied = true
+#   type    = "CNAME"
+#   ttl     = 1
+# }
 
 resource "cloudflare_record" "home_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["home_subdomain"]
