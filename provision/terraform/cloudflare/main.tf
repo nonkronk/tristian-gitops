@@ -50,11 +50,12 @@ resource "cloudflare_zone_settings_override" "cloudflare_settings" {
     security_level = "medium"
     # /speed/optimization
     brotli = "on"
-    minify {
-      css  = "on"
-      js   = "on"
-      html = "on"
-    }
+    # Deprecated
+    #minify {
+    #  css  = "on"
+    #  js   = "on"
+    #  html = "on"
+    #}
     rocket_loader = "off"
     # /caching/configuration
     always_online    = "on"
@@ -82,14 +83,14 @@ data "http" "ipv4" {
   url = "http://ipv4.icanhazip.com"
 }
 
-resource "cloudflare_record" "cname_home" {
-  name    = data.sops_file.cloudflare_secrets.data["cname_home"]
-  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = chomp(data.http.ipv4.response_body)
-  proxied = true
-  type    = "A"
-  ttl     = 1
-}
+#resource "cloudflare_record" "cname_home" {
+#  name    = data.sops_file.cloudflare_secrets.data["cname_home"]
+#  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+#  value   = chomp(data.http.ipv4.response_body)
+#  proxied = true
+#  type    = "A"
+#  ttl     = 1
+#}
 
 resource "cloudflare_record" "cname_oracle" {
   name    = data.sops_file.cloudflare_secrets.data["cname_oracle"]
@@ -103,7 +104,7 @@ resource "cloudflare_record" "cname_oracle" {
 resource "cloudflare_record" "root" {
   name    = data.sops_file.cloudflare_secrets.data["cloudflare_domain"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
-  value   = data.sops_file.cloudflare_secrets.data["cname_home_domain"]
+  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
   proxied = true
   type    = "CNAME"
   ttl     = 1
