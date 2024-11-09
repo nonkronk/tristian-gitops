@@ -263,6 +263,15 @@ resource "cloudflare_record" "oracle_couch_subdomain" {
   ttl     = 1
 }
 
+resource "cloudflare_record" "oracle_mark_subdomain" {
+  name    = data.sops_file.cloudflare_secrets.data["oracle_mark_subdomain"]
+  zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
+  value   = data.sops_file.cloudflare_secrets.data["cname_oracle_domain"]
+  proxied = true
+  type    = "CNAME"
+  ttl     = 1
+}
+
 resource "cloudflare_record" "home_subdomain" {
   name    = data.sops_file.cloudflare_secrets.data["home_subdomain"]
   zone_id = lookup(data.cloudflare_zones.domain.zones[0], "id")
