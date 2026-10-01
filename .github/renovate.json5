@@ -110,6 +110,11 @@
       "matchDatasources": ["helm"],
       "matchUpdateTypes": ["patch"],
       "labels": ["renovate/helm", "dep/patch"]
+    },
+    {
+      "description": "Keep major updates in the Dependency Dashboard until approved",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
     }
   ]
 }
