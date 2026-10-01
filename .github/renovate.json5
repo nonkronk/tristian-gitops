@@ -18,24 +18,25 @@
     "enabled": true
   },
   "flux": {
-    "fileMatch": [
+    "managerFilePatterns": [
       "cluster/.+\\.ya?ml$"
     ]
   },
   "helm-values": {
-    "fileMatch": [
+    "managerFilePatterns": [
       "cluster/.+\\.ya?ml$"
     ]
   },
   "kubernetes": {
-    "fileMatch": [
+    "managerFilePatterns": [
       "cluster/.+\\.ya?ml$"
     ]
   },
-  "regexManagers": [
-    // regexManager to read and process HelmRelease files
+  "customManagers": [
+    // regex custom manager to read and process HelmRelease files
     {
-      "fileMatch": [
+      "customType": "regex",
+      "managerFilePatterns": [
         "cluster/.+\\.ya?ml$"
       ],
       "matchStrings": [
@@ -44,9 +45,10 @@
       ],
       "datasourceTemplate": "helm"
     },
-    // regexManager to read and process cert-manager CRD's
+    // regex custom manager to read and process cert-manager CRD's
     {
-      "fileMatch": [
+      "customType": "regex",
+      "managerFilePatterns": [
         "cluster/crds/cert-manager/.+\\.ya?ml$"
       ],
       "matchStrings": [
@@ -54,9 +56,10 @@
       ],
       "datasourceTemplate": "helm"
     },
-    // regexManager to read and process Traefik CRD's
+    // regex custom manager to read and process Traefik CRD's
     {
-      "fileMatch": [
+      "customType": "regex",
+      "managerFilePatterns": [
         "cluster/crds/traefik/.+\\.ya?ml$"
       ],
       "matchStrings": [
